@@ -2,7 +2,6 @@ import sugar
 import math
 import strformat
 import midio_ui
-import midio_ui_canvas
 
 proc onHover(self: Subject[bool]): Behavior =
   onHover(
@@ -39,6 +38,7 @@ component Slider(
 
   proc snapToStep(value: float): float =
     let d = value mod stepSize
+    echo "D: ", $d
     if d < stepSize / 2.0:
       value - d
     else:
@@ -90,8 +90,13 @@ proc render(): Element =
         onValueChanged = printValue
       )
 
-startApp(
-  render,
-  "rootCanvas",
-  "nativeContainer"
-)
+when defined(js):
+  import midio_ui_canvas
+  startApp(
+    render,
+    "rootCanvas",
+    "nativeContainer"
+  )
+when defined(c):
+  import midio_ui_cairo
+  startApp(render)
