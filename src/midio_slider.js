@@ -8405,47 +8405,47 @@ function remove_12240160(self_12240165, self_12240165_Idx, item_12240166) {
 
   
 }
-function behavior_subject_14455662(value_14455665) {
-    function HEX3Aanonymous_14455677(subscriber_14455683) {
-        function HEX3Aanonymous_14455858() {
+function behavior_subject_14455726(value_14455729) {
+    function HEX3Aanonymous_14455741(subscriber_14455747) {
+        function HEX3Aanonymous_14455922() {
           var F={procname:":anonymous.:anonymous",prev:framePtr,filename:"observables.nim",line:0};
           framePtr = F;
             F.line = 73;
-            remove_12240160(ret_14455672, "subscribers", subscriber_14455683);
+            remove_12240160(ret_14455736, "subscribers", subscriber_14455747);
           framePtr = F.prev;
 
           
         }
 
-      var result_14455684 = null;
+      var result_14455748 = null;
 
       var F={procname:"behaviorSubject.:anonymous",prev:framePtr,filename:"observables.nim",line:0};
       framePtr = F;
         F.line = 69;
         F.line = 69;
-        if (ret_14455672.subscribers != null) { ret_14455672.subscribers.push(subscriber_14455683); } else { ret_14455672.subscribers = [subscriber_14455683]; };
+        if (ret_14455736.subscribers != null) { ret_14455736.subscribers.push(subscriber_14455747); } else { ret_14455736.subscribers = [subscriber_14455747]; };
         F.line = 70;
-        subscriber_14455683.onNext(ret_14455672.value);
-        result_14455684 = {dispose: HEX3Aanonymous_14455858};
+        subscriber_14455747.onNext(ret_14455736.value);
+        result_14455748 = {dispose: HEX3Aanonymous_14455922};
       framePtr = F.prev;
 
-      return result_14455684;
+      return result_14455748;
 
     }
 
-  var result_14455667 = null;
+  var result_14455731 = null;
 
   var F={procname:"behaviorSubject.behaviorSubject",prev:framePtr,filename:"observables.nim",line:0};
   framePtr = F;
     F.line = 61;
     F.line = 63;
-    var ret_14455672 = {value: value_14455665, didComplete: false, source: null, subscribers: null};
+    var ret_14455736 = {value: value_14455729, didComplete: false, source: null, subscribers: null};
     F.line = 67;
-    ret_14455672.source = {onSubscribe: HEX3Aanonymous_14455677};
-    result_14455667 = ret_14455672;
+    ret_14455736.source = {onSubscribe: HEX3Aanonymous_14455741};
+    result_14455731 = ret_14455736;
   framePtr = F.prev;
 
-  return result_14455667;
+  return result_14455731;
 
 }
 function to_option_10572177(x_10572180) {
@@ -9716,39 +9716,39 @@ function clamp_14455512(x_14455515, a_14455516, b_14455517) {
   return result_14455518;
 
 }
-function map_14456524(self_14456529, mapper_14456532) {
-    function HEX3Aanonymous_14456539(subscriber_14456545) {
-        function HEX3Aanonymous_14456572(new_val_14456574) {
+function map_14456588(self_14456593, mapper_14456596) {
+    function HEX3Aanonymous_14456603(subscriber_14456609) {
+        function HEX3Aanonymous_14456636(new_val_14456638) {
           var F={procname:":anonymous.:anonymous",prev:framePtr,filename:"observables.nim",line:0};
           framePtr = F;
             F.line = 178;
-            subscriber_14456545.onNext(mapper_14456532(new_val_14456574));
+            subscriber_14456609.onNext(mapper_14456596(new_val_14456638));
           framePtr = F.prev;
 
           
         }
 
-      var result_14456546 = null;
+      var result_14456610 = null;
 
       var F={procname:"map.:anonymous",prev:framePtr,filename:"observables.nim",line:0};
       framePtr = F;
         F.line = 176;
-        result_14456546 = subscribe_13780457(self_14456529, HEX3Aanonymous_14456572);
+        result_14456610 = subscribe_13780457(self_14456593, HEX3Aanonymous_14456636);
       framePtr = F.prev;
 
-      return result_14456546;
+      return result_14456610;
 
     }
 
-  var result_14456534 = null;
+  var result_14456598 = null;
 
   var F={procname:"map.map",prev:framePtr,filename:"observables.nim",line:0};
   framePtr = F;
     F.line = 174;
-    result_14456534 = {onSubscribe: HEX3Aanonymous_14456539};
+    result_14456598 = {onSubscribe: HEX3Aanonymous_14456603};
   framePtr = F.prev;
 
-  return result_14456534;
+  return result_14456598;
 
 }
 function inv_lerp_14443284(a_14443286, b_14443287, t_14443288) {
@@ -10742,12 +10742,23 @@ function create_slider_14455341(props_14455343, elem_propsHEX60gensym14443357_14
 
     }
     function snap_to_step_14455583(value_14455585) {
+        var Tmp1;
+
       var result_14455586 = 0.0;
 
       var F={procname:"createSlider.snapToStep",prev:framePtr,filename:"midio_slider.nim",line:0};
       framePtr = F;
         F.line = 41;
-        result_14455586 = (value_14455585 - value_14455585 % step_size_14455386);
+        F.line = 41;
+        var d_14455597 = value_14455585 % step_size_14455386;
+        if ((d_14455597 < (step_size_14455386 / 2.0000000000000000e+00))) {
+        Tmp1 = (value_14455585 - d_14455597);
+        }
+        else {
+        Tmp1 = ((value_14455585 - d_14455597) + step_size_14455386);
+        }
+        
+        result_14455586 = Tmp1;
       framePtr = F.prev;
 
       return result_14455586;
@@ -10765,20 +10776,20 @@ function create_slider_14455341(props_14455343, elem_propsHEX60gensym14443357_14
       return result_14455428;
 
     }
-    function HEX3Aanonymous_14458094(new_val_14458096) {
+    function HEX3Aanonymous_14458158(new_val_14458160) {
       var F={procname:"createSlider.:anonymous",prev:framePtr,filename:"midio_slider.nim",line:0};
       framePtr = F;
-        F.line = 52;
-        on_value_changed_14455351(new_val_14458096);
+        F.line = 56;
+        on_value_changed_14455351(new_val_14458160);
       framePtr = F.prev;
 
       
     }
-function set_val_14457795(value_14457797) {
+function set_val_14457859(value_14457861) {
   var F={procname:"createSlider.setVal",prev:framePtr,filename:"midio_slider.nim",line:0};
   framePtr = F;
-    F.line = 48;
-    next_12260114(val_14455972, restrict_val_14455508(value_14457797));
+    F.line = 52;
+    next_12260114(val_14456036, restrict_val_14455508(value_14457861));
   framePtr = F.prev;
 
   
@@ -10798,8 +10809,8 @@ function pos_to_val_14455453(pos_14455455) {
         function HEX3Aanonymous_14515116(delta_14515122) {
           var F={procname:"createSlider.:anonymous",prev:framePtr,filename:"midio_slider.nim",line:0};
           framePtr = F;
-            F.line = 67;
-            set_val_14457795((val_14455972.value + pos_to_val_14455453(delta_14515122.x)));
+            F.line = 71;
+            set_val_14457859((val_14456036.value + pos_to_val_14455453(delta_14515122.x)));
           framePtr = F.prev;
 
           
@@ -10850,26 +10861,26 @@ function pos_to_val_14455453(pos_14455455) {
     var step_size_14455386 = 2.2000000000000002e+00;
     F.line = 29;
     var slider_max_pos_14455424 = (slider_width_14455385 - (circle_radius_14455384 * 2.0000000000000000e+00));
-    F.line = 43;
-    var val_14455972 = behavior_subject_14455662(restrict_val_14455508(default_value_14455350));
-    F.line = 44;
-    var real_value_14457401 = map_14456524(map_14456524(to_observable_12280044(val_14455972), restrict_val_14455508), snap_to_step_14455583);
-    F.line = 45;
-    var thumb_pos_14457794 = map_14456524(real_value_14457401, val_to_pos_14455425);
-    F.line = 50;
-    subscribe_13780457(real_value_14457401, HEX3Aanonymous_14458094);
+    F.line = 47;
+    var val_14456036 = behavior_subject_14455726(restrict_val_14455508(default_value_14455350));
+    F.line = 48;
+    var real_value_14457465 = map_14456588(map_14456588(to_observable_12280044(val_14456036), snap_to_step_14455583), restrict_val_14455508);
+    F.line = 49;
+    var thumb_pos_14457858 = map_14456588(real_value_14457465, val_to_pos_14455425);
+    F.line = 54;
+    subscribe_13780457(real_value_14457465, HEX3Aanonymous_14458158);
     L1: do {
-      F.line = 58;
+      F.line = 62;
       var elem_parts_14465010 = {Field0: {width: to_option_11470283(slider_width_14455385), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {}};
       F.line = 229;
       L2: do {
-        F.line = 56;
+        F.line = 60;
         var elem_parts_14475010 = {Field0: {width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {color: to_option_10572177(makeNimstrLit("teal")), radius: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), stroke: ({val: null, has: false}), strokeWidth: ({val: 0.0, has: false})}};
         F.line = 229;
         var children_14465015 = [];
         F.line = 230;
         var behaviors_14465016 = [];
-        F.line = 56;
+        F.line = 60;
         var res_14480033 = create_rectangle_11491539(elem_parts_14475010.Field1, elem_parts_14475010.Field0, children_14465015);
         L3: do {
           F.line = 502;
@@ -10882,9 +10893,9 @@ function pos_to_val_14455453(pos_14455455) {
             F.line = 186;
               L5: while (true) {
               if (!(i_14655391 < l_14655392)) break L5;
-                F.line = 56;
+                F.line = 60;
                 nimCopy(behavior_14485014, behaviors_14465016[chckIndx(i_14655391, 0, (behaviors_14465016 != null ? behaviors_14465016.length : 0)+0-1)-0], NTI11686068);
-                F.line = 56;
+                F.line = 60;
                 add_11745074(res_14480033, behavior_14485014);
                 F.line = 188;
                 i_14655391 = addInt(i_14655391, 1);
@@ -10898,13 +10909,13 @@ function pos_to_val_14455453(pos_14455455) {
         } while(false);
       } while(false);
       L6: do {
-        F.line = 57;
+        F.line = 61;
         var elem_parts_14495028 = {Field0: {height: to_option_11470283(4.0000000000000000e+00), margin: to_option_11050654(thickness_11142530(circle_radius_14455384)), verticalAlignment: to_option_13590009(1), width: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), horizontalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {color: to_option_10572177(makeNimstrLit("yellow")), radius: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), stroke: ({val: null, has: false}), strokeWidth: ({val: 0.0, has: false})}};
         F.line = 229;
         var children_14485109 = [];
         F.line = 230;
         var behaviors_14485110 = [];
-        F.line = 57;
+        F.line = 61;
         var res_14500033 = create_rectangle_11491539(elem_parts_14495028.Field1, elem_parts_14495028.Field0, children_14485109);
         L7: do {
           F.line = 502;
@@ -10917,9 +10928,9 @@ function pos_to_val_14455453(pos_14455455) {
             F.line = 186;
               L9: while (true) {
               if (!(i_14655398 < l_14655399)) break L9;
-                F.line = 57;
+                F.line = 61;
                 nimCopy(behavior_14505014, behaviors_14485110[chckIndx(i_14655398, 0, (behaviors_14485110 != null ? behaviors_14485110.length : 0)+0-1)-0], NTI11686068);
-                F.line = 57;
+                F.line = 61;
                 add_11745074(res_14500033, behavior_14505014);
                 F.line = 188;
                 i_14655398 = addInt(i_14655398, 1);
@@ -10933,17 +10944,17 @@ function pos_to_val_14455453(pos_14455455) {
         } while(false);
       } while(false);
       L10: do {
-        F.line = 65;
+        F.line = 69;
         var elem_parts_14515010 = {Field0: {verticalAlignment: to_option_13590009(1), width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {radius: circle_radius_14455384, color: ({val: null, has: false}), stroke: ({val: null, has: false}), strokeWidth: ({val: 0.0, has: false})}};
         F.line = 229;
         var children_14505109 = [];
         F.line = 230;
         var behaviors_14505110 = [on_hover_14443014(hovering_thumb_14455383), on_drag_12186093(HEX3Aanonymous_14515116)];
-        F.line = 65;
+        F.line = 69;
         var res_14520031 = create_circle_11480443(elem_parts_14515010.Field1, elem_parts_14515010.Field0, children_14505109);
         F.line = 89;
-        subscribe_13780457(thumb_pos_14457794, HEX3Aanonymous_14530177);
-        F.line = 65;
+        subscribe_13780457(thumb_pos_14457858, HEX3Aanonymous_14530177);
+        F.line = 69;
         subscribe_13845457(choose_14520089(to_observable_13736148(hovering_thumb_14455383), makeNimstrLit("orange"), makeNimstrLit("red")), HEX3Aanonymous_14535177);
         L11: do {
           F.line = 502;
@@ -10956,9 +10967,9 @@ function pos_to_val_14455453(pos_14455455) {
             F.line = 186;
               L13: while (true) {
               if (!(i_14655405 < l_14655406)) break L13;
-                F.line = 65;
+                F.line = 69;
                 nimCopy(behavior_14535454, behaviors_14505110[chckIndx(i_14655405, 0, (behaviors_14505110 != null ? behaviors_14505110.length : 0)+0-1)-0], NTI11686068);
-                F.line = 65;
+                F.line = 69;
                 add_11745074(res_14520031, behavior_14535454);
                 F.line = 188;
                 i_14655405 = addInt(i_14655405, 1);
@@ -10971,29 +10982,29 @@ function pos_to_val_14455453(pos_14455455) {
           } while(false);
         } while(false);
       } while(false);
-      var children_14458349 = [res_14480033, res_14500033, res_14520031];
+      var children_14458413 = [res_14480033, res_14500033, res_14520031];
       F.line = 230;
-      var behaviors_14458350 = [];
-      F.line = 58;
-      var res_14540050 = new_element_13450297(elem_parts_14465010.Field1, elem_parts_14465010.Field0, children_14458349);
+      var behaviors_14458414 = [];
+      F.line = 62;
+      var res_14540050 = new_element_13450297(elem_parts_14465010.Field1, elem_parts_14465010.Field0, children_14458413);
       L14: do {
         F.line = 502;
         var behavior_14545014 = ({update: ({val: null}), added: ({val: null})});
         F.line = 184;
         var i_14655409 = 0;
         F.line = 185;
-        var l_14655410 = (behaviors_14458350 != null ? behaviors_14458350.length : 0);
+        var l_14655410 = (behaviors_14458414 != null ? behaviors_14458414.length : 0);
         L15: do {
           F.line = 186;
             L16: while (true) {
             if (!(i_14655409 < l_14655410)) break L16;
-              F.line = 58;
-              nimCopy(behavior_14545014, behaviors_14458350[chckIndx(i_14655409, 0, (behaviors_14458350 != null ? behaviors_14458350.length : 0)+0-1)-0], NTI11686068);
-              F.line = 58;
+              F.line = 62;
+              nimCopy(behavior_14545014, behaviors_14458414[chckIndx(i_14655409, 0, (behaviors_14458414 != null ? behaviors_14458414.length : 0)+0-1)-0], NTI11686068);
+              F.line = 62;
               add_11745074(res_14540050, behavior_14545014);
               F.line = 188;
               i_14655409 = addInt(i_14655409, 1);
-              if (!(((behaviors_14458350 != null ? behaviors_14458350.length : 0) == l_14655410))) {
+              if (!(((behaviors_14458414 != null ? behaviors_14458414.length : 0) == l_14655410))) {
               F.line = 189;
               failed_assert_impl_102680(makeNimstrLit("/home/hassel/.choosenim/toolchains/nim-1.2.6/lib/system/iterators.nim(189, 11) `len(a) == L` the length of the seq changed while iterating over it"));
               }
@@ -11238,12 +11249,12 @@ function render_14545166() {
 
             var F={procname:"render.:anonymous",prev:framePtr,filename:"midio_slider.nim",line:0};
             framePtr = F;
-              F.line = 80;
-              F.line = 80;
+              F.line = 84;
+              F.line = 84;
               var fmt_res_14600144 = [mnewString(0)];
-              F.line = 80;
+              F.line = 84;
               if (fmt_res_14600144[0] != null) { fmt_res_14600144[0] = (fmt_res_14600144[0]).concat(makeNimstrLit("val: ")); } else { fmt_res_14600144[0] = makeNimstrLit("val: "); };
-              F.line = 80;
+              F.line = 84;
               format_value_11120011(fmt_res_14600144, 0, x_14600138, []);
               result_14600139 = nimCopy(null, fmt_res_14600144[0], NTI112);
             framePtr = F.prev;
@@ -11265,7 +11276,7 @@ function render_14545166() {
           function print_value_14545201(x_14545203) {
             var F={procname:"render.printValue",prev:framePtr,filename:"midio_slider.nim",line:0};
             framePtr = F;
-              F.line = 74;
+              F.line = 78;
               next_12260114(val_14545200, x_14545203);
             framePtr = F.prev;
 
@@ -11276,21 +11287,21 @@ function render_14545166() {
 
   var F={procname:"midio_slider.render",prev:framePtr,filename:"midio_slider.nim",line:0};
   framePtr = F;
-    F.line = 72;
-    F.line = 72;
-    var val_14545200 = behavior_subject_14455662(5.0000000000000000e-01);
+    F.line = 76;
+    F.line = 76;
+    var val_14545200 = behavior_subject_14455726(5.0000000000000000e-01);
     L1: do {
-      F.line = 77;
+      F.line = 81;
       var elem_parts_14555004 = {Field0: {width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {}};
       F.line = 229;
       L2: do {
-        F.line = 76;
+        F.line = 80;
         var elem_parts_14565010 = {Field0: {width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {color: to_option_10572177(makeNimstrLit("blue")), radius: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), stroke: ({val: null, has: false}), strokeWidth: ({val: 0.0, has: false})}};
         F.line = 229;
         var children_14555009 = [];
         F.line = 230;
         var behaviors_14555010 = [];
-        F.line = 76;
+        F.line = 80;
         var res_14570033 = create_rectangle_11491539(elem_parts_14565010.Field1, elem_parts_14565010.Field0, children_14555009);
         L3: do {
           F.line = 502;
@@ -11303,9 +11314,9 @@ function render_14545166() {
             F.line = 186;
               L5: while (true) {
               if (!(i_14655277 < l_14655278)) break L5;
-                F.line = 76;
+                F.line = 80;
                 nimCopy(behavior_14575014, behaviors_14555010[chckIndx(i_14655277, 0, (behaviors_14555010 != null ? behaviors_14555010.length : 0)+0-1)-0], NTI11686068);
-                F.line = 76;
+                F.line = 80;
                 add_11745074(res_14570033, behavior_14575014);
                 F.line = 188;
                 i_14655277 = addInt(i_14655277, 1);
@@ -11319,19 +11330,19 @@ function render_14545166() {
         } while(false);
       } while(false);
       L6: do {
-        F.line = 82;
+        F.line = 86;
         var elem_parts_14585010 = {Field0: {horizontalAlignment: to_option_11490132(1), width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {direction: 0}};
         F.line = 229;
         L7: do {
-          F.line = 78;
+          F.line = 82;
           var elem_parts_14595004 = {Field0: {width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {text: null, fontSize: ({val: 0.0, has: false}), font: ({val: null, has: false}), color: ({val: null, has: false})}};
           F.line = 229;
           var children_14585015 = [];
           F.line = 230;
           var behaviors_14585016 = [];
-          F.line = 78;
+          F.line = 82;
           var res_14600034 = create_text_13460305(elem_parts_14595004.Field1, elem_parts_14595004.Field0, children_14585015);
-          F.line = 78;
+          F.line = 82;
           subscribe_13845457(map_14605473(to_observable_12280044(val_14545200), HEX3Aanonymous_14600136), HEX3Aanonymous_14615177);
           L8: do {
             F.line = 502;
@@ -11344,9 +11355,9 @@ function render_14545166() {
               F.line = 186;
                 L10: while (true) {
                 if (!(i_14655287 < l_14655288)) break L10;
-                  F.line = 78;
+                  F.line = 82;
                   nimCopy(behavior_14615448, behaviors_14585016[chckIndx(i_14655287, 0, (behaviors_14585016 != null ? behaviors_14585016.length : 0)+0-1)-0], NTI11686068);
-                  F.line = 78;
+                  F.line = 82;
                   add_11745074(res_14600034, behavior_14615448);
                   F.line = 188;
                   i_14655287 = addInt(i_14655287, 1);
@@ -11360,13 +11371,13 @@ function render_14545166() {
           } while(false);
         } while(false);
         L11: do {
-          F.line = 86;
+          F.line = 90;
           var elem_parts_14625004 = {Field0: {width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {min: 0.0, max: 1.0000000000000000e+01, defaultValue: 6.5000000000000000e+00, onValueChanged: print_value_14545201}};
           F.line = 229;
           var children_14615588 = [];
           F.line = 230;
           var behaviors_14615589 = [];
-          F.line = 86;
+          F.line = 90;
           var res_14630033 = create_slider_14455341(elem_parts_14625004.Field1, elem_parts_14625004.Field0, children_14615588);
           L12: do {
             F.line = 502;
@@ -11379,9 +11390,9 @@ function render_14545166() {
               F.line = 186;
                 L14: while (true) {
                 if (!(i_14655294 < l_14655295)) break L14;
-                  F.line = 86;
+                  F.line = 90;
                   nimCopy(behavior_14635014, behaviors_14615589[chckIndx(i_14655294, 0, (behaviors_14615589 != null ? behaviors_14615589.length : 0)+0-1)-0], NTI11686068);
-                  F.line = 86;
+                  F.line = 90;
                   add_11745074(res_14630033, behavior_14635014);
                   F.line = 188;
                   i_14655294 = addInt(i_14655294, 1);
@@ -11397,7 +11408,7 @@ function render_14545166() {
         var children_14575109 = [res_14600034, res_14630033];
         F.line = 230;
         var behaviors_14575110 = [];
-        F.line = 82;
+        F.line = 86;
         var res_14640043 = create_stack_11435418(elem_parts_14585010.Field1, elem_parts_14585010.Field0, children_14575109);
         L15: do {
           F.line = 502;
@@ -11410,9 +11421,9 @@ function render_14545166() {
             F.line = 186;
               L17: while (true) {
               if (!(i_14655298 < l_14655299)) break L17;
-                F.line = 82;
+                F.line = 86;
                 nimCopy(behavior_14645014, behaviors_14575110[chckIndx(i_14655298, 0, (behaviors_14575110 != null ? behaviors_14575110.length : 0)+0-1)-0], NTI11686068);
-                F.line = 82;
+                F.line = 86;
                 add_11745074(res_14640043, behavior_14645014);
                 F.line = 188;
                 i_14655298 = addInt(i_14655298, 1);
@@ -11428,7 +11439,7 @@ function render_14545166() {
       var children_14545327 = [res_14570033, res_14640043];
       F.line = 230;
       var behaviors_14545328 = [];
-      F.line = 77;
+      F.line = 81;
       var res_14650043 = new_element_13450297(elem_parts_14555004.Field1, elem_parts_14555004.Field0, children_14545327);
       L18: do {
         F.line = 502;
@@ -11441,9 +11452,9 @@ function render_14545166() {
           F.line = 186;
             L20: while (true) {
             if (!(i_14655302 < l_14655303)) break L20;
-              F.line = 77;
+              F.line = 81;
               nimCopy(behavior_14655014, behaviors_14545328[chckIndx(i_14655302, 0, (behaviors_14545328 != null ? behaviors_14545328.length : 0)+0-1)-0], NTI11686068);
-              F.line = 77;
+              F.line = 81;
               add_11745074(res_14650043, behavior_14655014);
               F.line = 188;
               i_14655302 = addInt(i_14655302, 1);

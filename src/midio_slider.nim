@@ -38,10 +38,14 @@ component Slider(
     clamp(value, min, max)
 
   proc snapToStep(value: float): float =
-    value - (value mod stepSize)
+    let d = value mod stepSize
+    if d < stepSize / 2.0:
+      value - d
+    else:
+      value - d + stepSize
 
   let val = behaviorSubject(restrictVal(defaultValue))
-  let realValue = val.map(restrictVal).map(snapToStep)
+  let realValue = val.map(snapToStep).map(restrictVal)
   let thumbPos = realValue.map(valToPos)
 
   proc setVal(value: float): void =
