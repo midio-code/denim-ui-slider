@@ -11,6 +11,9 @@ proc onHover(self: Subject[bool]): Behavior =
       self.next(false)
   )
 
+proc invLerp(a, b, t: float): float = 
+  (t - a) / (b - a)
+
 component Slider(
   min: float,
   max: float, 
@@ -24,16 +27,23 @@ component Slider(
   let sliderMaxPos = (sliderWidth - circleRadius * 2.0)
   
   proc valToPos(val: float): float =
-    lerp(min, max, val) * sliderMaxPos
+    invLerp(min, max, val) * sliderMaxPos
 
   proc posToVal(pos: float): float =
-    pos / sliderMaxPos
-  
-  let val = behaviorSubject(defaultValue)
+    (pos / sliderMaxPos) * (max - min)
+
+  proc restrictVal(value: float): float =
+    clamp(value, min, max)
+
+  let val = behaviorSubject(restrictVal(defaultValue))
   let thumbPos = val.map(valToPos)
 
+  proc setVal(value: float): void =
+    val.next(restrictVal(value))
+  
   discard val.subscribe(
-    onValueChanged
+    proc(newVal: float): void =
+      onValueChanged(newVal)
   )
 
   panel(width = sliderWidth):
@@ -48,7 +58,7 @@ component Slider(
       hoveringThumb.onHover()
       onDrag(
         proc(delta: Vec2[float]): void =
-          val.next(clamp(val.value + posToVal(delta.x), min, max))
+          setVal(val.value + posToVal(delta.x))
       )
 
 
@@ -64,9 +74,9 @@ proc render(): Element =
           &"val: {x}"
       ))
       Slider(
-        min = 0.0, 
-        max = 1.0, 
-        defaultValue = 0.5, 
+        min = 5.0, 
+        max = 10.0, 
+        defaultValue = 6.5, 
         onValueChanged = printValue
       )
 
