@@ -1,4 +1,5 @@
 import sugar
+import math
 import strformat
 import midio_ui
 import midio_ui_canvas
@@ -23,6 +24,7 @@ component Slider(
   let hoveringThumb = behaviorSubject(false)
   let circleRadius = 8.0
   let sliderWidth = 200.0
+  let stepSize = 2.2
 
   let sliderMaxPos = (sliderWidth - circleRadius * 2.0)
   
@@ -35,13 +37,17 @@ component Slider(
   proc restrictVal(value: float): float =
     clamp(value, min, max)
 
+  proc snapToStep(value: float): float =
+    value - (value mod stepSize)
+
   let val = behaviorSubject(restrictVal(defaultValue))
-  let thumbPos = val.map(valToPos)
+  let realValue = val.map(restrictVal).map(snapToStep)
+  let thumbPos = realValue.map(valToPos)
 
   proc setVal(value: float): void =
     val.next(restrictVal(value))
   
-  discard val.subscribe(
+  discard realValue.subscribe(
     proc(newVal: float): void =
       onValueChanged(newVal)
   )
@@ -74,7 +80,7 @@ proc render(): Element =
           &"val: {x}"
       ))
       Slider(
-        min = 5.0, 
+        min = 0.0, 
         max = 10.0, 
         defaultValue = 6.5, 
         onValueChanged = printValue
