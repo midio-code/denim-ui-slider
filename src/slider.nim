@@ -1,5 +1,17 @@
 import math, midio_ui, sugar
 
+
+type
+  Foo* = ref FooObj
+  FooObj* = object
+    foo*: int
+ 
+proc bar*(self: Foo): void =
+  echo "hello"
+
+let f = Foo(foo: 123)
+f.bar()
+
 proc onHover(self: Subject[bool]): Behavior =
   onHover(
     proc(e: Element): void = 
@@ -20,7 +32,7 @@ component Slider(
   let hoveringThumb = behaviorSubject(false)
   let circleRadius = 8.0
   let sliderWidth = 200.0
-  let stepSize = 0.5
+  let stepSize = 2
 
   let sliderMaxPos = (sliderWidth - circleRadius * 2.0)
   
@@ -42,7 +54,8 @@ component Slider(
 
   let val = behaviorSubject(restrictVal(defaultValue))
   let realValue = val.map(snapToStep).map(restrictVal)
-  let thumbPos = realValue.map(valToPos)
+
+  let thumbPos = realValue.map(valToPos) 
 
   proc setVal(value: float): void =
     val.next(restrictVal(value))
