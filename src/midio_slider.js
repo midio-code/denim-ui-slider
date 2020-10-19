@@ -8405,47 +8405,47 @@ function remove_12240160(self_12240165, self_12240165_Idx, item_12240166) {
 
   
 }
-function behavior_subject_14455461(value_14455464) {
-    function HEX3Aanonymous_14455476(subscriber_14455482) {
-        function HEX3Aanonymous_14455657() {
+function behavior_subject_14455511(value_14455514) {
+    function HEX3Aanonymous_14455526(subscriber_14455532) {
+        function HEX3Aanonymous_14455707() {
           var F={procname:":anonymous.:anonymous",prev:framePtr,filename:"observables.nim",line:0};
           framePtr = F;
             F.line = 73;
-            remove_12240160(ret_14455471, "subscribers", subscriber_14455482);
+            remove_12240160(ret_14455521, "subscribers", subscriber_14455532);
           framePtr = F.prev;
 
           
         }
 
-      var result_14455483 = null;
+      var result_14455533 = null;
 
       var F={procname:"behaviorSubject.:anonymous",prev:framePtr,filename:"observables.nim",line:0};
       framePtr = F;
         F.line = 69;
         F.line = 69;
-        if (ret_14455471.subscribers != null) { ret_14455471.subscribers.push(subscriber_14455482); } else { ret_14455471.subscribers = [subscriber_14455482]; };
+        if (ret_14455521.subscribers != null) { ret_14455521.subscribers.push(subscriber_14455532); } else { ret_14455521.subscribers = [subscriber_14455532]; };
         F.line = 70;
-        subscriber_14455482.onNext(ret_14455471.value);
-        result_14455483 = {dispose: HEX3Aanonymous_14455657};
+        subscriber_14455532.onNext(ret_14455521.value);
+        result_14455533 = {dispose: HEX3Aanonymous_14455707};
       framePtr = F.prev;
 
-      return result_14455483;
+      return result_14455533;
 
     }
 
-  var result_14455466 = null;
+  var result_14455516 = null;
 
   var F={procname:"behaviorSubject.behaviorSubject",prev:framePtr,filename:"observables.nim",line:0};
   framePtr = F;
     F.line = 61;
     F.line = 63;
-    var ret_14455471 = {value: value_14455464, didComplete: false, source: null, subscribers: null};
+    var ret_14455521 = {value: value_14455514, didComplete: false, source: null, subscribers: null};
     F.line = 67;
-    ret_14455471.source = {onSubscribe: HEX3Aanonymous_14455476};
-    result_14455466 = ret_14455471;
+    ret_14455521.source = {onSubscribe: HEX3Aanonymous_14455526};
+    result_14455516 = ret_14455521;
   framePtr = F.prev;
 
-  return result_14455466;
+  return result_14455516;
 
 }
 function to_option_10572177(x_10572180) {
@@ -9689,39 +9689,63 @@ function behavior_subject_13505375(value_13505378) {
   return result_13505393;
 
 }
-function map_14456341(self_14456346, mapper_14456349) {
-    function HEX3Aanonymous_14456356(subscriber_14456362) {
-        function HEX3Aanonymous_14456389(new_val_14456391) {
+function map_14456373(self_14456378, mapper_14456381) {
+    function HEX3Aanonymous_14456388(subscriber_14456394) {
+        function HEX3Aanonymous_14456421(new_val_14456423) {
           var F={procname:":anonymous.:anonymous",prev:framePtr,filename:"observables.nim",line:0};
           framePtr = F;
             F.line = 178;
-            subscriber_14456362.onNext(mapper_14456349(new_val_14456391));
+            subscriber_14456394.onNext(mapper_14456381(new_val_14456423));
           framePtr = F.prev;
 
           
         }
 
-      var result_14456363 = null;
+      var result_14456395 = null;
 
       var F={procname:"map.:anonymous",prev:framePtr,filename:"observables.nim",line:0};
       framePtr = F;
         F.line = 176;
-        result_14456363 = subscribe_13780457(self_14456346, HEX3Aanonymous_14456389);
+        result_14456395 = subscribe_13780457(self_14456378, HEX3Aanonymous_14456421);
       framePtr = F.prev;
 
-      return result_14456363;
+      return result_14456395;
 
     }
 
-  var result_14456351 = null;
+  var result_14456383 = null;
 
   var F={procname:"map.map",prev:framePtr,filename:"observables.nim",line:0};
   framePtr = F;
     F.line = 174;
-    result_14456351 = {onSubscribe: HEX3Aanonymous_14456356};
+    result_14456383 = {onSubscribe: HEX3Aanonymous_14456388};
   framePtr = F.prev;
 
-  return result_14456351;
+  return result_14456383;
+
+}
+function lerp_9954469(a_9954472, b_9954473, t_9954474) {
+  var result_9954475 = 0.0;
+
+  var F={procname:"lerp.lerp",prev:framePtr,filename:"vec.nim",line:0};
+  framePtr = F;
+    F.line = 21;
+    result_9954475 = ((a_9954472 * (1.0000000000000000e+00 - t_9954474)) + (b_9954473 * t_9954474));
+  framePtr = F.prev;
+
+  return result_9954475;
+
+}
+function subscribe_14457367(self_14457371, on_next_14457374) {
+  var result_14457375 = null;
+
+  var F={procname:"subscribe.subscribe",prev:framePtr,filename:"observables.nim",line:0};
+  framePtr = F;
+    F.line = 54;
+    result_14457375 = subscribe_13780457(self_14457371.source, on_next_14457374);
+  framePtr = F.prev;
+
+  return result_14457375;
 
 }
 function to_option_11470283(x_11470286) {
@@ -10465,6 +10489,33 @@ function on_drag_12186093(moved_12190009) {
   return result_12190010;
 
 }
+function clamp_14515190(x_14515193, a_14515194, b_14515195) {
+  var result_14515196 = 0.0;
+
+  var F={procname:"clamp.clamp",prev:framePtr,filename:"comparisons.nim",line:0};
+  framePtr = F;
+  BeforeRet: do {
+    if ((x_14515193 < a_14515194)) {
+    F.line = 260;
+    result_14515196 = a_14515194;
+    break BeforeRet;
+    }
+    
+    if ((b_14515195 < x_14515193)) {
+    F.line = 261;
+    result_14515196 = b_14515195;
+    break BeforeRet;
+    }
+    
+    F.line = 262;
+    result_14515196 = x_14515193;
+    break BeforeRet;
+  } while (false);
+  framePtr = F.prev;
+
+  return result_14515196;
+
+}
 function measure_circle_11480262(self_11480264, available_size_11480269, props_11480270) {
   var result_11480275 = null;
 
@@ -10690,34 +10741,44 @@ function new_element_13450297(comp_props_13450299, elem_props_13450300, children
 
 }
 function create_slider_14455341(props_14455343, elem_propsHEX60gensym14443285_14455344, children_14455346) {
-    function HEX3Aanonymous_14455881(pos_14455883) {
-      var result_14455884 = 0.0;
+    function val_to_pos_14455424(val_14455426) {
+      var result_14455427 = 0.0;
 
-      var F={procname:"createSlider.:anonymous",prev:framePtr,filename:"midio_slider.nim",line:0};
+      var F={procname:"createSlider.valToPos",prev:framePtr,filename:"midio_slider.nim",line:0};
       framePtr = F;
-        F.line = 29;
-        result_14455884 = (pos_14455883 / slider_max_pos_14455423);
+        F.line = 27;
+        result_14455427 = (lerp_9954469(min_14455348, max_14455349, val_14455426) * slider_max_pos_14455423);
       framePtr = F.prev;
 
-      return result_14455884;
+      return result_14455427;
 
     }
+function pos_to_val_14455467(pos_14455469) {
+  var result_14455470 = 0.0;
+
+  var F={procname:"createSlider.posToVal",prev:framePtr,filename:"midio_slider.nim",line:0};
+  framePtr = F;
+    F.line = 30;
+    result_14455470 = (pos_14455469 / slider_max_pos_14455423);
+  framePtr = F.prev;
+
+  return result_14455470;
+
+}
         function HEX3Aanonymous_14515116(delta_14515122) {
           var F={procname:"createSlider.:anonymous",prev:framePtr,filename:"midio_slider.nim",line:0};
           framePtr = F;
-            F.line = 48;
-            var new_xpos_14515174 = min_80014(max_90014(0.0, (thumb_pos_14455771.value + delta_14515122.x)), slider_max_pos_14455423);
-            F.line = 49;
-            next_12260114(thumb_pos_14455771, new_xpos_14515174);
+            F.line = 51;
+            next_12260114(val_14455821, clamp_14515190((val_14455821.value + pos_to_val_14455467(delta_14515122.x)), min_14455348, max_14455349));
           framePtr = F.prev;
 
           
         }
-        function HEX3Aanonymous_14530177(new_valHEX60gensym14525009_14530179) {
+        function HEX3Aanonymous_14530177(new_valHEX60gensym14525002_14530179) {
           var F={procname:"createSlider.:anonymous",prev:framePtr,filename:"data_binding.nim",line:0};
           framePtr = F;
             F.line = 25;
-            nimCopy(res_14520031.props.x, to_option_11470283(new_valHEX60gensym14525009_14530179), NTI9986076);
+            nimCopy(res_14520031.props.x, to_option_11470283(new_valHEX60gensym14525002_14530179), NTI9986076);
             F.line = 26;
             invalidate_layout_10965696(res_14520031);
           framePtr = F.prev;
@@ -10757,24 +10818,24 @@ function create_slider_14455341(props_14455343, elem_propsHEX60gensym14443285_14
     var slider_width_14455385 = 2.0000000000000000e+02;
     F.line = 24;
     var slider_max_pos_14455423 = (slider_width_14455385 - (circle_radius_14455384 * 2.0000000000000000e+00));
-    F.line = 26;
-    var thumb_pos_14455771 = behavior_subject_14455461((slider_max_pos_14455423 * default_value_14455350));
-    F.line = 27;
-    var val_14456826 = map_14456341(to_observable_12280044(thumb_pos_14455771), HEX3Aanonymous_14455881);
     F.line = 32;
-    subscribe_13780457(val_14456826, on_value_changed_14455351);
+    var val_14455821 = behavior_subject_14455511(default_value_14455350);
+    F.line = 33;
+    var thumb_pos_14456858 = map_14456373(to_observable_12280044(val_14455821), val_to_pos_14455424);
+    F.line = 35;
+    subscribe_14457367(val_14455821, on_value_changed_14455351);
     L1: do {
-      F.line = 39;
+      F.line = 42;
       var elem_parts_14465010 = {Field0: {width: to_option_11470283(slider_width_14455385), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {}};
       F.line = 229;
       L2: do {
-        F.line = 37;
+        F.line = 40;
         var elem_parts_14475010 = {Field0: {width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {color: to_option_10572177(makeNimstrLit("teal")), radius: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), stroke: ({val: null, has: false}), strokeWidth: ({val: 0.0, has: false})}};
         F.line = 229;
         var children_14465015 = [];
         F.line = 230;
         var behaviors_14465016 = [];
-        F.line = 37;
+        F.line = 40;
         var res_14480033 = create_rectangle_11491539(elem_parts_14475010.Field1, elem_parts_14475010.Field0, children_14465015);
         L3: do {
           F.line = 502;
@@ -10787,9 +10848,9 @@ function create_slider_14455341(props_14455343, elem_propsHEX60gensym14443285_14
             F.line = 186;
               L5: while (true) {
               if (!(i_14655391 < l_14655392)) break L5;
-                F.line = 37;
+                F.line = 40;
                 nimCopy(behavior_14485014, behaviors_14465016[chckIndx(i_14655391, 0, (behaviors_14465016 != null ? behaviors_14465016.length : 0)+0-1)-0], NTI11686068);
-                F.line = 37;
+                F.line = 40;
                 add_11745074(res_14480033, behavior_14485014);
                 F.line = 188;
                 i_14655391 = addInt(i_14655391, 1);
@@ -10803,13 +10864,13 @@ function create_slider_14455341(props_14455343, elem_propsHEX60gensym14443285_14
         } while(false);
       } while(false);
       L6: do {
-        F.line = 38;
+        F.line = 41;
         var elem_parts_14495028 = {Field0: {height: to_option_11470283(4.0000000000000000e+00), margin: to_option_11050654(thickness_11142530(circle_radius_14455384)), verticalAlignment: to_option_13590009(1), width: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), horizontalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {color: to_option_10572177(makeNimstrLit("yellow")), radius: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), stroke: ({val: null, has: false}), strokeWidth: ({val: 0.0, has: false})}};
         F.line = 229;
         var children_14485109 = [];
         F.line = 230;
         var behaviors_14485110 = [];
-        F.line = 38;
+        F.line = 41;
         var res_14500033 = create_rectangle_11491539(elem_parts_14495028.Field1, elem_parts_14495028.Field0, children_14485109);
         L7: do {
           F.line = 502;
@@ -10822,9 +10883,9 @@ function create_slider_14455341(props_14455343, elem_propsHEX60gensym14443285_14
             F.line = 186;
               L9: while (true) {
               if (!(i_14655398 < l_14655399)) break L9;
-                F.line = 38;
+                F.line = 41;
                 nimCopy(behavior_14505014, behaviors_14485110[chckIndx(i_14655398, 0, (behaviors_14485110 != null ? behaviors_14485110.length : 0)+0-1)-0], NTI11686068);
-                F.line = 38;
+                F.line = 41;
                 add_11745074(res_14500033, behavior_14505014);
                 F.line = 188;
                 i_14655398 = addInt(i_14655398, 1);
@@ -10838,17 +10899,17 @@ function create_slider_14455341(props_14455343, elem_propsHEX60gensym14443285_14
         } while(false);
       } while(false);
       L10: do {
-        F.line = 46;
+        F.line = 49;
         var elem_parts_14515010 = {Field0: {verticalAlignment: to_option_13590009(1), width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {radius: circle_radius_14455384, color: ({val: null, has: false}), stroke: ({val: null, has: false}), strokeWidth: ({val: 0.0, has: false})}};
         F.line = 229;
         var children_14505109 = [];
         F.line = 230;
         var behaviors_14505110 = [on_hover_14443014(hovering_thumb_14455383), on_drag_12186093(HEX3Aanonymous_14515116)];
-        F.line = 46;
+        F.line = 49;
         var res_14520031 = create_circle_11480443(elem_parts_14515010.Field1, elem_parts_14515010.Field0, children_14505109);
         F.line = 89;
-        subscribe_13780457(to_observable_12280044(thumb_pos_14455771), HEX3Aanonymous_14530177);
-        F.line = 46;
+        subscribe_13780457(thumb_pos_14456858, HEX3Aanonymous_14530177);
+        F.line = 49;
         subscribe_13845457(choose_14520089(to_observable_13736148(hovering_thumb_14455383), makeNimstrLit("orange"), makeNimstrLit("red")), HEX3Aanonymous_14535177);
         L11: do {
           F.line = 502;
@@ -10861,9 +10922,9 @@ function create_slider_14455341(props_14455343, elem_propsHEX60gensym14443285_14
             F.line = 186;
               L13: while (true) {
               if (!(i_14655405 < l_14655406)) break L13;
-                F.line = 46;
+                F.line = 49;
                 nimCopy(behavior_14535454, behaviors_14505110[chckIndx(i_14655405, 0, (behaviors_14505110 != null ? behaviors_14505110.length : 0)+0-1)-0], NTI11686068);
-                F.line = 46;
+                F.line = 49;
                 add_11745074(res_14520031, behavior_14535454);
                 F.line = 188;
                 i_14655405 = addInt(i_14655405, 1);
@@ -10876,29 +10937,29 @@ function create_slider_14455341(props_14455343, elem_propsHEX60gensym14443285_14
           } while(false);
         } while(false);
       } while(false);
-      var children_14457242 = [res_14480033, res_14500033, res_14520031];
+      var children_14457804 = [res_14480033, res_14500033, res_14520031];
       F.line = 230;
-      var behaviors_14457243 = [];
-      F.line = 39;
-      var res_14540050 = new_element_13450297(elem_parts_14465010.Field1, elem_parts_14465010.Field0, children_14457242);
+      var behaviors_14457805 = [];
+      F.line = 42;
+      var res_14540050 = new_element_13450297(elem_parts_14465010.Field1, elem_parts_14465010.Field0, children_14457804);
       L14: do {
         F.line = 502;
         var behavior_14545014 = ({update: ({val: null}), added: ({val: null})});
         F.line = 184;
         var i_14655409 = 0;
         F.line = 185;
-        var l_14655410 = (behaviors_14457243 != null ? behaviors_14457243.length : 0);
+        var l_14655410 = (behaviors_14457805 != null ? behaviors_14457805.length : 0);
         L15: do {
           F.line = 186;
             L16: while (true) {
             if (!(i_14655409 < l_14655410)) break L16;
-              F.line = 39;
-              nimCopy(behavior_14545014, behaviors_14457243[chckIndx(i_14655409, 0, (behaviors_14457243 != null ? behaviors_14457243.length : 0)+0-1)-0], NTI11686068);
-              F.line = 39;
+              F.line = 42;
+              nimCopy(behavior_14545014, behaviors_14457805[chckIndx(i_14655409, 0, (behaviors_14457805 != null ? behaviors_14457805.length : 0)+0-1)-0], NTI11686068);
+              F.line = 42;
               add_11745074(res_14540050, behavior_14545014);
               F.line = 188;
               i_14655409 = addInt(i_14655409, 1);
-              if (!(((behaviors_14457243 != null ? behaviors_14457243.length : 0) == l_14655410))) {
+              if (!(((behaviors_14457805 != null ? behaviors_14457805.length : 0) == l_14655410))) {
               F.line = 189;
               failed_assert_impl_102680(makeNimstrLit("/home/hassel/.choosenim/toolchains/nim-1.2.6/lib/system/iterators.nim(189, 11) `len(a) == L` the length of the seq changed while iterating over it"));
               }
@@ -11143,12 +11204,12 @@ function render_14545165() {
 
             var F={procname:"render.:anonymous",prev:framePtr,filename:"midio_slider.nim",line:0};
             framePtr = F;
-              F.line = 62;
-              F.line = 62;
+              F.line = 64;
+              F.line = 64;
               var fmt_res_14600142 = [mnewString(0)];
-              F.line = 62;
+              F.line = 64;
               if (fmt_res_14600142[0] != null) { fmt_res_14600142[0] = (fmt_res_14600142[0]).concat(makeNimstrLit("val: ")); } else { fmt_res_14600142[0] = makeNimstrLit("val: "); };
-              F.line = 62;
+              F.line = 64;
               format_value_11120011(fmt_res_14600142, 0, x_14600136, []);
               result_14600137 = nimCopy(null, fmt_res_14600142[0], NTI112);
             framePtr = F.prev;
@@ -11170,7 +11231,7 @@ function render_14545165() {
           function print_value_14545200(x_14545202) {
             var F={procname:"render.printValue",prev:framePtr,filename:"midio_slider.nim",line:0};
             framePtr = F;
-              F.line = 56;
+              F.line = 58;
               next_12260114(val_14545199, x_14545202);
             framePtr = F.prev;
 
@@ -11181,21 +11242,21 @@ function render_14545165() {
 
   var F={procname:"midio_slider.render",prev:framePtr,filename:"midio_slider.nim",line:0};
   framePtr = F;
-    F.line = 54;
-    F.line = 54;
-    var val_14545199 = behavior_subject_14455461(5.0000000000000000e-01);
+    F.line = 56;
+    F.line = 56;
+    var val_14545199 = behavior_subject_14455511(5.0000000000000000e-01);
     L1: do {
-      F.line = 59;
+      F.line = 61;
       var elem_parts_14555004 = {Field0: {width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {}};
       F.line = 229;
       L2: do {
-        F.line = 58;
+        F.line = 60;
         var elem_parts_14565010 = {Field0: {width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {color: to_option_10572177(makeNimstrLit("blue")), radius: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), stroke: ({val: null, has: false}), strokeWidth: ({val: 0.0, has: false})}};
         F.line = 229;
         var children_14555009 = [];
         F.line = 230;
         var behaviors_14555010 = [];
-        F.line = 58;
+        F.line = 60;
         var res_14570033 = create_rectangle_11491539(elem_parts_14565010.Field1, elem_parts_14565010.Field0, children_14555009);
         L3: do {
           F.line = 502;
@@ -11208,9 +11269,9 @@ function render_14545165() {
             F.line = 186;
               L5: while (true) {
               if (!(i_14655277 < l_14655278)) break L5;
-                F.line = 58;
+                F.line = 60;
                 nimCopy(behavior_14575014, behaviors_14555010[chckIndx(i_14655277, 0, (behaviors_14555010 != null ? behaviors_14555010.length : 0)+0-1)-0], NTI11686068);
-                F.line = 58;
+                F.line = 60;
                 add_11745074(res_14570033, behavior_14575014);
                 F.line = 188;
                 i_14655277 = addInt(i_14655277, 1);
@@ -11224,19 +11285,19 @@ function render_14545165() {
         } while(false);
       } while(false);
       L6: do {
-        F.line = 64;
+        F.line = 66;
         var elem_parts_14585010 = {Field0: {horizontalAlignment: to_option_11490132(1), width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {direction: 0}};
         F.line = 229;
         L7: do {
-          F.line = 60;
+          F.line = 62;
           var elem_parts_14595004 = {Field0: {width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {text: null, fontSize: ({val: 0.0, has: false}), font: ({val: null, has: false}), color: ({val: null, has: false})}};
           F.line = 229;
           var children_14585015 = [];
           F.line = 230;
           var behaviors_14585016 = [];
-          F.line = 60;
+          F.line = 62;
           var res_14600034 = create_text_13460305(elem_parts_14595004.Field1, elem_parts_14595004.Field0, children_14585015);
-          F.line = 60;
+          F.line = 62;
           subscribe_13845457(map_14605475(to_observable_12280044(val_14545199), HEX3Aanonymous_14600134), HEX3Aanonymous_14615177);
           L8: do {
             F.line = 502;
@@ -11249,9 +11310,9 @@ function render_14545165() {
               F.line = 186;
                 L10: while (true) {
                 if (!(i_14655287 < l_14655288)) break L10;
-                  F.line = 60;
+                  F.line = 62;
                   nimCopy(behavior_14615448, behaviors_14585016[chckIndx(i_14655287, 0, (behaviors_14585016 != null ? behaviors_14585016.length : 0)+0-1)-0], NTI11686068);
-                  F.line = 60;
+                  F.line = 62;
                   add_11745074(res_14600034, behavior_14615448);
                   F.line = 188;
                   i_14655287 = addInt(i_14655287, 1);
@@ -11265,13 +11326,13 @@ function render_14545165() {
           } while(false);
         } while(false);
         L11: do {
-          F.line = 68;
+          F.line = 70;
           var elem_parts_14625004 = {Field0: {width: ({val: 0.0, has: false}), height: ({val: 0.0, has: false}), maxWidth: ({val: 0.0, has: false}), minWidth: ({val: 0.0, has: false}), maxHeight: ({val: 0.0, has: false}), minHeight: ({val: 0.0, has: false}), x: ({val: 0.0, has: false}), y: ({val: 0.0, has: false}), xOffset: ({val: 0.0, has: false}), yOffset: ({val: 0.0, has: false}), margin: ({val: {Field0: 0.0, Field1: 0.0, Field2: 0.0, Field3: 0.0}, has: false}), horizontalAlignment: ({val: 0, has: false}), verticalAlignment: ({val: 0, has: false}), visibility: ({val: 0, has: false}), clipToBounds: ({val: false, has: false}), transform: ({val: ({scale: null, translation: null, rotation: 0.0}), has: false})}, Field1: {min: 0.0, max: 1.0000000000000000e+00, defaultValue: 5.0000000000000000e-01, onValueChanged: print_value_14545200}};
           F.line = 229;
           var children_14615588 = [];
           F.line = 230;
           var behaviors_14615589 = [];
-          F.line = 68;
+          F.line = 70;
           var res_14630033 = create_slider_14455341(elem_parts_14625004.Field1, elem_parts_14625004.Field0, children_14615588);
           L12: do {
             F.line = 502;
@@ -11284,9 +11345,9 @@ function render_14545165() {
               F.line = 186;
                 L14: while (true) {
                 if (!(i_14655294 < l_14655295)) break L14;
-                  F.line = 68;
+                  F.line = 70;
                   nimCopy(behavior_14635014, behaviors_14615589[chckIndx(i_14655294, 0, (behaviors_14615589 != null ? behaviors_14615589.length : 0)+0-1)-0], NTI11686068);
-                  F.line = 68;
+                  F.line = 70;
                   add_11745074(res_14630033, behavior_14635014);
                   F.line = 188;
                   i_14655294 = addInt(i_14655294, 1);
@@ -11302,7 +11363,7 @@ function render_14545165() {
         var children_14575109 = [res_14600034, res_14630033];
         F.line = 230;
         var behaviors_14575110 = [];
-        F.line = 64;
+        F.line = 66;
         var res_14640043 = create_stack_11435418(elem_parts_14585010.Field1, elem_parts_14585010.Field0, children_14575109);
         L15: do {
           F.line = 502;
@@ -11315,9 +11376,9 @@ function render_14545165() {
             F.line = 186;
               L17: while (true) {
               if (!(i_14655298 < l_14655299)) break L17;
-                F.line = 64;
+                F.line = 66;
                 nimCopy(behavior_14645014, behaviors_14575110[chckIndx(i_14655298, 0, (behaviors_14575110 != null ? behaviors_14575110.length : 0)+0-1)-0], NTI11686068);
-                F.line = 64;
+                F.line = 66;
                 add_11745074(res_14640043, behavior_14645014);
                 F.line = 188;
                 i_14655298 = addInt(i_14655298, 1);
@@ -11333,7 +11394,7 @@ function render_14545165() {
       var children_14545326 = [res_14570033, res_14640043];
       F.line = 230;
       var behaviors_14545327 = [];
-      F.line = 59;
+      F.line = 61;
       var res_14650043 = new_element_13450297(elem_parts_14555004.Field1, elem_parts_14555004.Field0, children_14545326);
       L18: do {
         F.line = 502;
@@ -11346,9 +11407,9 @@ function render_14545165() {
           F.line = 186;
             L20: while (true) {
             if (!(i_14655302 < l_14655303)) break L20;
-              F.line = 59;
+              F.line = 61;
               nimCopy(behavior_14655014, behaviors_14545327[chckIndx(i_14655302, 0, (behaviors_14545327 != null ? behaviors_14545327.length : 0)+0-1)-0], NTI11686068);
-              F.line = 59;
+              F.line = 61;
               add_11745074(res_14650043, behavior_14655014);
               F.line = 188;
               i_14655302 = addInt(i_14655302, 1);

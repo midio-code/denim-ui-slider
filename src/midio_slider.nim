@@ -22,12 +22,15 @@ component Slider(
   let sliderWidth = 200.0
 
   let sliderMaxPos = (sliderWidth - circleRadius * 2.0)
+  
+  proc valToPos(val: float): float =
+    lerp(min, max, val) * sliderMaxPos
 
-  let thumbPos = behaviorSubject(sliderMaxPos * defaultValue)
-  let val = thumbPos.map(
-    proc(pos: float): float =
-      pos / sliderMaxPos
-  )
+  proc posToVal(pos: float): float =
+    pos / sliderMaxPos
+  
+  let val = behaviorSubject(defaultValue)
+  let thumbPos = val.map(valToPos)
 
   discard val.subscribe(
     onValueChanged
@@ -45,8 +48,7 @@ component Slider(
       hoveringThumb.onHover()
       onDrag(
         proc(delta: Vec2[float]): void =
-          let newXPos = min(max(0.0, thumbPos.value + delta.x), sliderMaxPos)
-          thumbPos.next(newXPos)
+          val.next(clamp(val.value + posToVal(delta.x), min, max))
       )
 
 
