@@ -23,7 +23,7 @@ component Slider(
   let hoveringThumb = behaviorSubject(false)
   let circleRadius = 8.0
   let sliderWidth = 200.0
-  let stepSize = 2.2
+  let stepSize = 0.5
 
   let sliderMaxPos = (sliderWidth - circleRadius * 2.0)
   
