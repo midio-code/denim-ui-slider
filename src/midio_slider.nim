@@ -22,19 +22,11 @@ component Slider(
   let sliderWidth = 200.0
 
   let sliderMaxPos = (sliderWidth - circleRadius * 2.0)
-  proc sliderPosToValue(pos: float): float =
-    pos / sliderMaxPos
 
-  let thumbPos = behaviorSubject(vec2(sliderMaxPos * defaultValue, 0.0))
-
-  let thumbXPos = thumbPos.extract(x).map(
-    proc(val: float): float =
-      min(max(0.0, val), sliderMaxPos)
-  )
-
-  let val = thumbXPos.map(
-    proc(p: float): float =
-      sliderPosToValue(p)
+  let thumbPos = behaviorSubject(sliderMaxPos * defaultValue)
+  let val = thumbPos.map(
+    proc(pos: float): float =
+      pos / sliderMaxPos
   )
 
   discard val.subscribe(
@@ -45,7 +37,7 @@ component Slider(
     rectangle(color = "teal")
     rectangle(color = "yellow", height = 4.0, margin = thickness(circleRadius), verticalAlignment = VerticalAlignment.Center)
     circle(
-      x <- thumbXPos,
+      x <- thumbPos,
       radius = circleRadius,
       color <- hoveringThumb.choose("orange", "red"), 
       verticalAlignment = VerticalAlignment.Center
@@ -53,7 +45,8 @@ component Slider(
       hoveringThumb.onHover()
       onDrag(
         proc(delta: Vec2[float]): void =
-          thumbPos.next(thumbPos.value + delta)
+          let newXPos = min(max(0.0, thumbPos.value + delta.x), sliderMaxPos)
+          thumbPos.next(newXPos)
       )
 
 
