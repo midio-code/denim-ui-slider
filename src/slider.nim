@@ -1,17 +1,6 @@
 import math, midio_ui, sugar
 
 
-type
-  Foo* = ref FooObj
-  FooObj* = object
-    foo*: int
- 
-proc bar*(self: Foo): void =
-  echo "hello"
-
-let f = Foo(foo: 123)
-f.bar()
-
 proc onHover(self: Subject[bool]): Behavior =
   onHover(
     proc(e: Element): void = 
@@ -55,11 +44,11 @@ component Slider(
   let val = behaviorSubject(restrictVal(defaultValue))
   let realValue = val.map(snapToStep).map(restrictVal)
 
-  let thumbPos = realValue.map(valToPos) 
+  let thumbPos = realValue.map(valToPos)
 
   proc setVal(value: float): void =
     val.next(restrictVal(value))
-  
+
   discard realValue.subscribe(
     proc(newVal: float): void =
       onValueChanged(newVal)
@@ -71,7 +60,7 @@ component Slider(
     circle(
       x <- thumbPos,
       radius = circleRadius,
-      color <- hoveringThumb.choose("orange", "red"), 
+      color <- hoveringThumb.choose("orange", "red"),
       verticalAlignment = VerticalAlignment.Center
     ):
       hoveringThumb.onHover()
